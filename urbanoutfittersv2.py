@@ -1,5 +1,3 @@
-item_id = "39828231"
-url = 'http://www.urbanoutfitters.com/urban/catalog/productdetail.jsp?id='
 acceptablesizes = ['<span class="ng-binding">11.5</span>', '<span class="ng-binding">12</span>', '<span class="ng-binding">11</span>','<span class="ng-binding">10.5</span>', '<span class="ng-binding">10</span>', '<span class="ng-binding">6</span>']
 #URL FOR URBANOUTFITTERS CATALOG, LIST OF 7 SIZES THAT ARE OK TO BUY IN ORDER OF PREFERENCE
 
@@ -15,16 +13,13 @@ browser = webdriver.Firefox()
 action = webdriver.common.action_chains.ActionChains(browser)
 """calls webdriver.common.action_chains.ActionChains...
 follow with .move_to_element(arg).click(arg).perform()"""
-browser.get(url+item_id)
 #gets product webpage, composed of constant for URBAN OUTFITTERS and input id
 
 
 ''' This now contains the code specific to the webpage'''
 
-addtocart = browser.find_element_by_css_selector('.bag-button') #Add to cart element
 added_to_cart = False           #Sets the added to cart value to false
 ready = False                   #Sets
-looper = True
 '''
 Function that checks if an item is added to the cart
 '''
@@ -49,7 +44,11 @@ def added_to_cart_uo ():
 
 
 
-def buy(end):
+def buy():
+    url = input("Please input url")
+    end = 7
+    browser.get(url)
+    addtocart = browser.find_element_by_css_selector('.bag-button')
     for x in acceptablesizes:                           #Loops to find acceptable sizes, in priority order
         for i in range(1, end):
 
@@ -73,7 +72,7 @@ def buy(end):
                     time.sleep(1.5)
                     if (added_to_cart == True):
                         exit()
-                    else:
-                        looper = True
                 except NoSuchElementException:                                  #If the element is not found
                     print("Cannot add to cart")
+
+buy()

@@ -14,8 +14,8 @@ action = webdriver.common.action_chains.ActionChains(browser)
 """calls webdriver.common.action_chains.ActionChains...
 follow with .move_to_element(arg).click(arg).perform()"""
 
-auth = tweepy.OAuthHandler("SMOe7ZDuvt7awpfcfuMmWVJl3", "RGNUdCYe4YHMMDVDbOF37v2vefsEq7x4ryUnw8rtlvDAi5ITdD")
-auth.set_access_token("278285139-ChvAChDXSJe67L0p0s0Jj4ATCMdQCGy8HA9H0rQn", "396tmk41GyA1kQJ9v2kC1tOrrtnrZjSvzSMY6OsJ6jzfo")
+auth = tweepy.OAuthHandler(#REDACTED#,#REDACTED#)
+auth.set_access_token(#REDACTED#,#REDACTED#)
 api = tweepy.API(auth)
 #authenticates tweepy with twitter api, defines api
 
